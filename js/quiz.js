@@ -177,6 +177,9 @@ $(document).ready(function() {
     }
 
     function endQuiz() {
+
+        clearInterval(timer);
+
         $('#quizScreen').addClass('d-none');
         $('#resultScreen').removeClass('d-none');
         

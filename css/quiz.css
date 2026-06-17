@@ -7,7 +7,7 @@
     box-shadow: var(--neon-glow);
     border: 1px solid var(--border-color);
     width: 100%;
-    max-width: 600px;
+    max-width: 650px;
 }
 
 .options-grid {
@@ -20,7 +20,7 @@
     text-align: left;
     padding: 15px 20px;
     border-radius: 10px;
-    font-size: 1.1rem;
+    font-size:clamp(.9rem,2vw,1.1rem);
     transition: all 0.2s ease;
     border-width: 2px;
 }
@@ -46,4 +46,21 @@
     opacity: 0.8;
     cursor: not-allowed;
     transform: none;
+}
+
+@media(max-width:576px){
+
+    .quiz-container{
+        padding:15px;
+        margin:10px;
+    }
+
+    #questionText{
+        font-size:1rem;
+    }
+
+    .option-btn{
+        padding:12px;
+        font-size:.9rem;
+    }
 }
