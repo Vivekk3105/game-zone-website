@@ -112,7 +112,7 @@ $(document).ready(function() {
         $('#questionText').text(q.q);
         
         // Update progress bar
-        const progress = (currentQuestionIndex / currentQuestions.length) * 100;
+        const progress = ((currentQuestionIndex + 1) / currentQuestions.length) * 100;
         $('#progressBar').css('width', `${progress}%`);
         
         // Populate options
