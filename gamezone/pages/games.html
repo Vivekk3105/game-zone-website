@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Games - GameZone</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="../index.html">GAMEZONE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="games.html">Games</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
+                            <span id="theme-icon" class="ms-2">🌙</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="container mt-5 pt-5">
+        <div class="row pt-5 pb-3">
+            <div class="col-12 text-center">
+                <h1 class="text-gradient">All Games</h1>
+                <p class="text-muted">Browse and play our entire collection</p>
+            </div>
+        </div>
+        
+        <!-- Filters & Search -->
+        <div class="row mb-4">
+            <div class="col-md-4 mb-3">
+                <input type="text" id="searchInput" class="form-control bg-dark text-light border-secondary" placeholder="Search games...">
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="categoryFilter" class="form-select bg-dark text-light border-secondary">
+                    <option value="all">All Categories</option>
+                    <option value="arcade">Arcade</option>
+                    <option value="puzzle">Puzzle</option>
+                    <option value="classic">Classic</option>
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
+                <select id="difficultySort" class="form-select bg-dark text-light border-secondary">
+                    <option value="default">Sort by Difficulty</option>
+                    <option value="easy">Easy to Hard</option>
+                    <option value="hard">Hard to Easy</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Games Grid -->
+        <div class="row" id="gamesGrid">
+            <!-- Snake -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="classic" data-difficulty="1">
+                <div class="game-card">
+                    <img src="../images/snake-game.png" class="card-img-top" alt="Snake Game">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Retro Snake</h5>
+                        <p class="card-text text-muted small">Classic arcade fun.</p>
+                        <span class="badge badge-easy mb-3">Easy</span>
+                        <br>
+                        <a href="snake.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Memory -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="puzzle" data-difficulty="1">
+                <div class="game-card">
+                    <img src="../images/memory-card-game.png" class="card-img-top" alt="Memory Game">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Memory Card</h5>
+                        <p class="card-text text-muted small">Train your brain.</p>
+                        <span class="badge badge-easy mb-3">Easy</span>
+                        <br>
+                        <a href="memory-game.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Minesweeper -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="puzzle" data-difficulty="3">
+                <div class="game-card">
+                    <img src="../images/minesweeper-game.png" class="card-img-top" alt="Minesweeper">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Minesweeper</h5>
+                        <p class="card-text text-muted small">Logic puzzle game.</p>
+                        <span class="badge badge-hard mb-3">Hard</span>
+                        <br>
+                        <a href="minesweeper.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 2048 -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="puzzle" data-difficulty="2">
+                <div class="game-card">
+                    <img src="../images/game-2048.png" class="card-img-top" alt="2048 Game">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">2048</h5>
+                        <p class="card-text text-muted small">Slide and merge tiles.</p>
+                        <span class="badge badge-medium mb-3">Medium</span>
+                        <br>
+                        <a href="game2048.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Flappy Bird -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="arcade" data-difficulty="3">
+                <div class="game-card">
+                    <img src="../images/flappy-clone-game.png" class="card-img-top" alt="Flappy Bird">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Flappy Clone</h5>
+                        <p class="card-text text-muted small">Avoid the pipes.</p>
+                        <span class="badge badge-hard mb-3">Hard</span>
+                        <br>
+                        <a href="flappy-bird.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Space Invaders -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="arcade" data-difficulty="2">
+                <div class="game-card">
+                    <img src="../images/space-invader-game.png" class="card-img-top" alt="Space Invaders">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Space Invaders</h5>
+                        <p class="card-text text-muted small">Defend the earth.</p>
+                        <span class="badge badge-medium mb-3">Medium</span>
+                        <br>
+                        <a href="space-invaders.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Sudoku -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="puzzle" data-difficulty="3">
+                <div class="game-card">
+                    <img src="../images/sudoku-game.png" class="card-img-top" alt="Sudoku">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Sudoku Solver</h5>
+                        <p class="card-text text-muted small">Classic number puzzle.</p>
+                        <span class="badge badge-hard mb-3">Hard</span>
+                        <br>
+                        <a href="sudoku.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Quiz Game -->
+            <div class="col-lg-3 col-md-6 mb-4 game-item" data-category="classic" data-difficulty="1">
+                <div class="game-card">
+                    <img src="../images/quiz-game.jpg" class="card-img-top" alt="Quiz Game">
+                    <div class="card-body text-center">
+                        <h5 class="card-title game-title">Quiz Master</h5>
+                        <p class="card-text text-muted small">Test your knowledge.</p>
+                        <span class="badge badge-easy mb-3">Easy</span>
+                        <br>
+                        <a href="quiz.html" class="btn btn-neon"> 🎮 Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-0">&copy; 2026 GameZone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="../js/main.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Search Functionality
+            $('#searchInput').on('keyup', function() {
+                var value = $(this).val().toLowerCase();
+                $('.game-item').filter(function() {
+                    $(this).toggle($(this).find('.game-title').text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+
+            // Category Filter Functionality
+            $('#categoryFilter').on('change', function() {
+                var category = $(this).val();
+                if(category === 'all') {
+                    $('.game-item').show();
+                } else {
+                    $('.game-item').hide();
+                    $('.game-item[data-category="'+category+'"]').show();
+                }
+                $('#searchInput').val(''); // Reset search
+            });
+
+            // Sorting Functionality
+            $('#difficultySort').on('change', function() {
+                var sortOrder = $(this).val();
+                var $grid = $('#gamesGrid');
+                var $items = $grid.children('.game-item');
+
+                $items.sort(function(a, b) {
+                    var an = parseInt(a.getAttribute('data-difficulty'));
+                    var bn = parseInt(b.getAttribute('data-difficulty'));
+
+                    if(sortOrder === 'easy') {
+                        return an - bn;
+                    } else if(sortOrder === 'hard') {
+                        return bn - an;
+                    }
+                    return 0; // Default
+                });
+
+                $items.detach().appendTo($grid);
+            });
+        });
+    </script>
+</body>
+</html>

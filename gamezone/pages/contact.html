@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - GameZone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="../index.html">GAMEZONE</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="games.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="leaderboard.html">Leaderboard</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <div class="theme-switch-wrapper">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox" />
+                                <div class="slider round"></div>
+                            </label>
+                            <span id="theme-icon" class="ms-2">🌙</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container mt-5 pt-5 pb-5 min-vh-100">
+        <div class="row pt-5 pb-3">
+            <div class="col-12 text-center">
+                <h1 class="text-gradient">Contact Us</h1>
+                <p class="text-muted">Have a question or found a bug? Let us know!</p>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-6 mb-5">
+                <div class="game-card p-4">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control bg-dark text-light border-secondary" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control bg-dark text-light border-secondary" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Subject</label>
+                            <select class="form-select bg-dark text-light border-secondary" id="subject" required>
+                                <option value="">Choose...</option>
+                                <option value="bug">Report a Bug</option>
+                                <option value="feedback">General Feedback</option>
+                                <option value="request">Game Request</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control bg-dark text-light border-secondary" id="message" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary-custom w-100">Send Message</button>
+                    </form>
+                    <div id="formSuccess" class="alert alert-success mt-3 d-none" role="alert">
+                        Message sent successfully!
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Map Placeholder -->
+                <div class="mb-4">
+                    <img src="../assets/images/contact-banner.jpg" class="img-fluid rounded w-100" alt="Map Location" style="background-color: #2d3436; height: 250px; object-fit: cover;">
+                </div>
+                
+                <h3 class="mb-3">FAQ</h3>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item bg-dark text-light border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Are the games really free?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, all games on GameZone are 100% free to play.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item bg-dark text-light border-secondary">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                Do I need to create an account?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                No! High scores are saved directly to your browser's local storage.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom mt-5">
+        <div class="container text-center">
+            <p class="text-muted mb-0">&copy; 2026 GameZone. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#contactForm').on('submit', function(e) {
+                e.preventDefault();
+                $(this).fadeOut(300, function() {
+                    $('#formSuccess').removeClass('d-none').fadeIn(300);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+/* Quiz Specific Styles */
+
+.quiz-container {
+    background: var(--bg-card);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: var(--neon-glow);
+    border: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 600px;
+}
+
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.option-btn {
+    text-align: left;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+    border-width: 2px;
+}
+
+.option-btn:hover {
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+}
+
+.option-btn.correct {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+    color: white;
+}
+
+.option-btn.wrong {
+    background-color: var(--danger-color);
+    border-color: var(--danger-color);
+    color: white;
+}
+
+.option-btn:disabled {
+    opacity: 0.8;
+    cursor: not-allowed;
+    transform: none;
+}

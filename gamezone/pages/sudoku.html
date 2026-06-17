@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku - GameZone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/sudoku.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="../index.html">GAMEZONE</a>
+            <div class="ms-auto d-flex align-items-center">
+                <a href="games.html" class="btn btn-outline-light btn-sm me-3">Back to Games</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5 text-center min-vh-100 d-flex flex-column align-items-center justify-content-center">
+        <h2 class="text-gradient mb-4">Sudoku Solver</h2>
+        
+        <div class="game-dashboard d-flex justify-content-center gap-4 mb-4 flex-wrap align-items-center">
+            <select id="difficultySelect" class="form-select bg-dark text-light border-secondary w-auto">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <div class="stat-box">
+                Time: <span id="timer">00:00</span>
+            </div>
+            <button id="generateBtn" class="btn btn-primary-custom btn-sm">New Puzzle</button>
+            <button id="resetBtn" class="btn btn-outline-warning btn-sm">Reset</button>
+            <button id="solveBtn" class="btn btn-neon btn-sm">Solve</button>
+        </div>
+
+        <div class="sudoku-container position-relative mx-auto">
+            <div id="sudokuGrid" class="sudoku-grid">
+                <!-- Inputs injected by JS -->
+            </div>
+            
+            <!-- Result Overlay -->
+            <div id="resultOverlay" class="game-overlay d-none">
+                <h3 class="text-success mb-3">Puzzle Solved!</h3>
+                <button id="playAgainBtn" class="btn btn-primary-custom mt-3">Play Again</button>
+            </div>
+            <div id="loadingOverlay" class="game-overlay d-none">
+                <h3 class="text-white">Generating...</h3>
+            </div>
+        </div>
+
+        <div class="leaderboard mt-4">
+            <h5>Top 5 Fastest Times</h5>
+            <ol id="leaderboardList"></ol>
+        </div>
+        
+        <p id="errorMsg" class="text-danger mt-3 d-none">Invalid puzzle state. Cannot solve.</p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../js/sudoku.js"></script>
+</body>
+</html>

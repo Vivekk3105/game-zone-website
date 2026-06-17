@@ -1,0 +1,82 @@
+/* Minesweeper Specific Styles */
+
+.stat-box {
+    background: rgba(255,255,255,0.05);
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    font-family: monospace;
+    border: 2px solid inset;
+    border-color: #808080 #fff #fff #808080;
+}
+
+.minesweeper-wrapper {
+    background: #c0c0c0;
+    padding: 10px;
+    border: 3px solid;
+    border-color: #fff #808080 #808080 #fff;
+    border-radius: 0; /* Classic look */
+    margin-bottom: 50px;
+    user-select: none;
+}
+
+.minesweeper-board {
+    display: grid;
+    background: #808080;
+    border: 3px solid;
+    border-color: #808080 #fff #fff #808080;
+}
+
+/* Cell styles */
+.cell {
+    width: 30px;
+    height: 30px;
+    background: #c0c0c0;
+    border: 2px solid;
+    border-color: #fff #808080 #808080 #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: default;
+}
+
+.cell:active {
+    border: 1px solid #808080;
+    background: #bdbdbd;
+}
+
+.cell.revealed {
+    border: 1px solid #808080;
+    background: #e0e0e0;
+}
+
+.cell.mine {
+    background-color: #ff4d4d;
+}
+
+/* Colors for numbers */
+.num-1 { color: #0000FF; }
+.num-2 { color: #008000; }
+.num-3 { color: #FF0000; }
+.num-4 { color: #000080; }
+.num-5 { color: #800000; }
+.num-6 { color: #008080; }
+.num-7 { color: #000000; }
+.num-8 { color: #808080; }
+
+.game-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}

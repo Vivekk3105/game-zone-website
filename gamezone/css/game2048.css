@@ -1,0 +1,239 @@
+/* ===== 2048 GAME ===== */
+
+.game-dashboard{
+    margin-bottom:20px;
+}
+
+.stat-box{
+    background:rgba(255,255,255,0.1);
+    color:#fff;
+    padding:12px 20px;
+    border-radius:10px;
+    font-weight:600;
+    min-width:120px;
+}
+
+.game2048-container{
+    position:relative;
+    width:min(90vw,420px);
+    height:min(90vw,420px);
+    margin:auto;
+    background:#bbada0;
+    border-radius:15px;
+    padding:15px;
+    touch-action:none;
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-rows:repeat(4,1fr);
+    gap:15px;
+    width:100%;
+    height:100%;
+}
+
+.grid-cell{
+    background:rgba(238,228,218,.35);
+    border-radius:8px;
+}
+
+.tile-container{
+    position:absolute;
+    top:15px;
+    left:15px;
+    right:15px;
+    bottom:15px;
+    z-index:5;
+}
+
+.tile{
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:8px;
+
+    font-weight:700;
+
+    transition:
+    transform .25s ease,
+    background .25s ease;
+
+    box-shadow:
+    0 2px 8px rgba(0,0,0,.25);
+
+    user-select:none;
+}
+
+/* ===== Tile Colors ===== */
+
+.tile-2{
+    background:#eee4da;
+    color:#776e65;
+}
+
+.tile-4{
+    background:#ede0c8;
+    color:#776e65;
+}
+
+.tile-8{
+    background:#f2b179;
+    color:#fff;
+}
+
+.tile-16{
+    background:#f59563;
+    color:#fff;
+}
+
+.tile-32{
+    background:#f67c5f;
+    color:#fff;
+}
+
+.tile-64{
+    background:#f65e3b;
+    color:#fff;
+}
+
+.tile-128{
+    background:#edcf72;
+    color:#fff;
+}
+
+.tile-256{
+    background:#edcc61;
+    color:#fff;
+}
+
+.tile-512{
+    background:#edc850;
+    color:#fff;
+}
+
+.tile-1024{
+    background:#edc53f;
+    color:#fff;
+    font-size:1.6rem;
+}
+
+.tile-2048{
+    background:#edc22e;
+    color:#fff;
+    font-size:1.6rem;
+
+    box-shadow:
+    0 0 20px rgba(255,215,0,.7);
+}
+
+.tile-super{
+    background:#3c3a32;
+    color:#fff;
+    font-size:1.2rem;
+}
+
+/* ===== Animations ===== */
+
+@keyframes tileAppear{
+
+    0%{
+        transform:scale(0);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.tile-new{
+    animation:tileAppear .2s ease;
+}
+
+@keyframes tilePop{
+
+    0%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.15);
+    }
+
+    100%{
+        transform:scale(1);
+    }
+}
+
+.tile-merged{
+    animation:tilePop .2s ease;
+}
+
+/* ===== Overlay ===== */
+
+.game-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    rgba(0,0,0,.85);
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    border-radius:15px;
+
+    z-index:20;
+}
+
+.game-overlay h3{
+    color:#fff;
+}
+
+.game-overlay button{
+    min-width:180px;
+}
+
+/* ===== Mobile ===== */
+
+@media(max-width:576px){
+
+    .game2048-container{
+
+        width:95vw;
+        height:95vw;
+
+        padding:10px;
+    }
+
+    .tile-container{
+
+        top:10px;
+        left:10px;
+        right:10px;
+        bottom:10px;
+    }
+
+    .grid-container{
+        gap:10px;
+    }
+
+    .tile{
+        font-size:1.5rem;
+    }
+
+    .tile-1024,
+    .tile-2048{
+        font-size:1.1rem;
+    }
+
+    .stat-box{
+        min-width:100px;
+        font-size:.9rem;
+    }
+}

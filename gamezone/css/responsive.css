@@ -1,0 +1,64 @@
+/* GameZone - Responsive Styles */
+
+@media (max-width: 991.98px) {
+    .navbar-custom {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+   .navbar-collapse {
+        background: #1e293b;
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        border: 1px solid #475569;
+    }
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .stats-box {
+        margin-bottom: 30px;
+    }
+    
+    .footer-custom {
+        text-align: center;
+    }
+    
+    .social-links {
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .game-card .card-img-top{
+        height:180px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .btn-neon, .btn-primary-custom {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    .game-card .card-img-top{
+        height:160px;
+    }
+}

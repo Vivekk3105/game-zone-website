@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper - GameZone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/minesweeper.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-gradient" href="../index.html">GAMEZONE</a>
+            <div class="ms-auto d-flex align-items-center">
+                <a href="games.html" class="btn btn-outline-light btn-sm me-3">Back to Games</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pt-5 text-center min-vh-100">
+        <h2 class="text-gradient mb-4">Minesweeper</h2>
+        
+        <div class="game-dashboard d-flex justify-content-center gap-4 mb-4 flex-wrap">
+            <div class="stat-box text-danger">🚩 <span id="minesCount">0</span></div>
+            <div class="stat-box text-warning">⏱️ <span id="timeDisplay">000</span></div>
+            <div class="controls d-flex align-items-center gap-2">
+                <select id="difficultySelect" class="form-select bg-dark text-light border-secondary w-auto">
+                    <option value="easy">Easy (9x9)</option>
+                    <option value="medium" selected>Medium (16x16)</option>
+                    <option value="hard">Hard (30x16)</option>
+                </select>
+                <button id="restartBtn" class="btn btn-neon btn-sm">Restart</button>
+            </div>
+        </div>
+
+        <div class="minesweeper-wrapper mx-auto position-relative d-inline-block">
+            <div id="minesweeperBoard" class="minesweeper-board">
+                <!-- Grid injected by JS -->
+            </div>
+            
+            <!-- Result Overlay -->
+            <div id="resultOverlay" class="game-overlay d-none">
+                <h3 id="resultMessage" class="mb-3"></h3>
+                <p>Time: <span id="finalTime">0</span> s</p>
+                <button id="playAgainBtn" class="btn btn-primary-custom mt-3">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="../js/minesweeper.js"></script>
+</body>
+</html>
