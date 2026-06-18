@@ -7,13 +7,25 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/responsive.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
         <div class="container">
             <a class="navbar-brand text-gradient" href="../index.html">GAMEZONE</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -82,35 +94,126 @@
             <div class="col-lg-6">
                 <!-- Map Placeholder -->
                 <div class="mb-4">
-                    <img src="../images/contact-us.png" class="img-fluid rounded w-100" alt="Contact us" style="background-color: #2d3436; height: 250px; object-fit: cover;">
+                   <img
+                        src="../images/contact-us.png"
+                        alt="Contact Us"
+                        loading="lazy"
+                        class="img-fluid rounded w-100"
+                    >
                 </div>
                 
-                <h3 class="mb-3">FAQ</h3>
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item bg-dark text-light border-secondary">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Are the games really free?
+                <h3 class="mb-3 text-gradient">Frequently Asked Questions</h3>
+
+                <div class="accordion accordion-flush" id="faqAccordion">
+
+                    <!-- FAQ 1 -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button
+                                class="accordion-button bg-dark text-light"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq1"
+                                aria-expanded="true"
+                                aria-controls="faq1">
+                                🎮 Are all games really free?
                             </button>
                         </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                Yes, all games on GameZone are 100% free to play.
+
+                        <div
+                            id="faq1"
+                            class="accordion-collapse collapse show"
+                            aria-labelledby="headingOne"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body text-light">
+                                Yes, all games available on GameZone are completely free to play.
+                                No subscriptions or hidden charges are required.
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-item bg-dark text-light border-secondary">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed bg-dark text-light" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                Do I need to create an account?
+
+                    <!-- FAQ 2 -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button
+                                class="accordion-button collapsed bg-dark text-light"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq2"
+                                aria-expanded="false"
+                                aria-controls="faq2">
+                                👤 Do I need to create an account?
                             </button>
                         </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                No! High scores are saved directly to your browser's local storage.
+
+                        <div
+                            id="faq2"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingTwo"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body text-light">
+                                No account is required. Your high scores and game progress
+                                are stored locally in your browser using Local Storage.
                             </div>
                         </div>
                     </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button
+                                class="accordion-button collapsed bg-dark text-light"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq3"
+                                aria-expanded="false"
+                                aria-controls="faq3">
+                                💾 Will my scores be saved?
+                            </button>
+                        </h2>
+
+                        <div
+                            id="faq3"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingThree"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body text-light">
+                                Yes. High scores are automatically saved in your browser's
+                                Local Storage and remain available when you revisit the website.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="accordion-item bg-dark border-secondary">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button
+                                class="accordion-button collapsed bg-dark text-light"
+                                type="button"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#faq4"
+                                aria-expanded="false"
+                                aria-controls="faq4">
+                                📱 Can I play on mobile devices?
+                            </button>
+                        </h2>
+
+                        <div
+                            id="faq4"
+                            class="accordion-collapse collapse"
+                            aria-labelledby="headingFour"
+                            data-bs-parent="#faqAccordion">
+
+                            <div class="accordion-body text-light">
+                                Yes. GameZone is fully responsive and works on desktops,
+                                tablets, and smartphones.
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

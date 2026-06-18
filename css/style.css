@@ -481,18 +481,41 @@ input:checked + .slider:before {
 
 /* Fix invisible text */
 
-.text-muted{
-    color:#d1d5db !important;
-}
-
-p{
-    color:#ffffff;
-}
-
 .card-text{
     color:#e5e7eb !important;
 }
 
 .footer-custom p{
     color:#d1d5db !important;
+}
+
+.accordion-item{
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    margin-bottom: 10px;
+    border-radius: 10px !important;
+    overflow: hidden;
+}
+
+.accordion-button{
+    box-shadow: none !important;
+    font-weight: 600;
+}
+
+.accordion-button:not(.collapsed){
+    background: rgba(108,92,231,0.15);
+    color: #fff;
+}
+
+.accordion-button:focus{
+    box-shadow: none;
+}
+
+.accordion-body{
+    background: rgba(255,255,255,0.03);
+    line-height: 1.7;
+}
+
+.accordion-button::after{
+    filter: brightness(0) invert(1);
 }
