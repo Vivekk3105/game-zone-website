@@ -1,6 +1,6 @@
 /**
  * GameZone - Main JavaScript
- */
+*/
 
 $(document).ready(function() {
     
