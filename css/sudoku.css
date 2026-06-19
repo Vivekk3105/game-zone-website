@@ -36,7 +36,7 @@
     aspect-ratio: 1/1;
 }
 
-/* ========================================
+/*========================================
    3x3 Borders
 ======================================== */
 
@@ -88,14 +88,14 @@
 /* Solved Cells */
 
 .sudoku-input.solved-cell{
-    color: var(--success-color);
+    color: var(--success);
     background: rgba(0,184,148,.08);
 }
 
 /* Wrong Values */
 
 .sudoku-input.error{
-    color: var(--danger-color);
+    color: var(--danger);
     background: rgba(214,48,49,.15);
 }
 

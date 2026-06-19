@@ -31,14 +31,14 @@
 }
 
 .option-btn.correct {
-    background-color: var(--success-color);
-    border-color: var(--success-color);
+    background-color: var(--success);
+    border-color: var(--success);
     color: white;
 }
 
 .option-btn.wrong {
-    background-color: var(--danger-color);
-    border-color: var(--danger-color);
+    background-color: var(--danger);
+    border-color: var(--danger);
     color: white;
 }
 

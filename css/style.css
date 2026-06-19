@@ -212,6 +212,7 @@ img{
 .game-card .card-body{
     display:flex;
     flex-direction:column;
+    padding: 1rem;
 }
 
 .game-card .card-title{
