@@ -61,4 +61,13 @@
     .game-card .card-img-top{
         height:160px;
     }
+
+    .hero-buttons{
+        width: 100%;
+    }
+
+    .hero-buttons .btn{
+        width: 100%;
+        max-width: 280px;
+    }
 }
