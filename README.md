@@ -2,6 +2,10 @@
 
 A modern browser gaming platform built using HTML5, CSS3, JavaScript, Bootstrap 5, and jQuery.
 
+## Live Demo
+
+https://games-zone-online.netlify.app/
+
 ## Features
 
 - Responsive Design
@@ -28,10 +32,6 @@ A modern browser gaming platform built using HTML5, CSS3, JavaScript, Bootstrap 
 - JavaScript
 - jQuery
 - Bootstrap 5
-
-## Live Demo
-
-https://games-zone-online.netlify.app/
 
 ## Author
 
