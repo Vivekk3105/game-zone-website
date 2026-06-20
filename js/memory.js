@@ -19,12 +19,44 @@ $(document).ready(function () {
     loadBestScore();
 
     function loadBestScore() {
-        const difficulty = $('#difficultySelect').val();
-        const best = localStorage.getItem(
-            `gamezone_memory_${difficulty}`
-        );
 
-        $('#bestScore').text(best || '--');
+        const difficulty =
+            $('#difficultySelect').val();
+
+        const data =
+            localStorage.getItem(
+                `gamezone_memory_${difficulty}`
+            );
+
+        if (!data) {
+
+            $('#bestScore').text('--');
+            return;
+        }
+
+        try {
+
+            const best = JSON.parse(data);
+
+            if (
+                best &&
+                best.moves !== undefined &&
+                best.time !== undefined
+            ) {
+
+                $('#bestScore').text(
+                    `${best.moves}M / ${best.time}s`
+                );
+
+            } else {
+
+                $('#bestScore').text(data);
+            }
+
+        } catch {
+
+            $('#bestScore').text(data);
+        }
     }
 
     function getGridSize() {
@@ -49,7 +81,7 @@ $(document).ready(function () {
             i--
         ) {
 
-            let j =
+            const j =
                 Math.floor(
                     Math.random() * (i + 1)
                 );
@@ -63,30 +95,33 @@ $(document).ready(function () {
 
     function formatTime(sec) {
 
-        let min =
+        const minutes =
             Math.floor(sec / 60);
 
-        let s = sec % 60;
+        const secondsPart =
+            sec % 60;
 
         return (
-            String(min).padStart(2,'0')
-            + ':' +
-            String(s).padStart(2,'0')
+            String(minutes).padStart(2, '0')
+            + ':'
+            + String(secondsPart).padStart(2, '0')
         );
     }
 
     function startTimer() {
 
-        if (timer) clearInterval(timer);
+        clearInterval(timer);
 
         timer = setInterval(() => {
 
             seconds++;
 
             $('#timeDisplay')
-                .text(formatTime(seconds));
+                .text(
+                    formatTime(seconds)
+                );
 
-        }, 1500);
+        }, 1000);
     }
 
     function initGame() {
@@ -94,18 +129,17 @@ $(document).ready(function () {
         clearInterval(timer);
 
         timerStarted = false;
-        seconds = 0;
-
-        $('#timeDisplay').text('00:00');
-
-        moves = 0;
-        matchedPairs = 0;
-
-        flippedCards = [];
-
         lockBoard = false;
 
-        $('#moveCount').text(0);
+        moves = 0;
+        seconds = 0;
+        matchedPairs = 0;
+
+        cards = [];
+        flippedCards = [];
+
+        $('#moveCount').text('0');
+        $('#timeDisplay').text('00:00');
 
         $('#winOverlay')
             .addClass('d-none');
@@ -127,8 +161,11 @@ $(document).ready(function () {
             $('#difficultySelect').val()
         );
 
-        let gameEmojis =
-            emojis.slice(0, config.pairs);
+        const gameEmojis =
+            emojis.slice(
+                0,
+                config.pairs
+            );
 
         cards = [
             ...gameEmojis,
@@ -159,11 +196,11 @@ $(document).ready(function () {
         if (lockBoard) return;
 
         if (
-            flippedCards.length >= 2
+            $(this).hasClass('flipped')
         ) return;
 
         if (
-            $(this).hasClass('flipped')
+            flippedCards.length >= 2
         ) return;
 
         if (!timerStarted) {
@@ -198,11 +235,11 @@ $(document).ready(function () {
         const second =
             flippedCards[1];
 
-        const match =
+        const isMatch =
             first.data('emoji') ===
             second.data('emoji');
 
-        if (match) {
+        if (isMatch) {
 
             first
                 .find('.card-front')
@@ -223,6 +260,7 @@ $(document).ready(function () {
                 matchedPairs ===
                 config.pairs
             ) {
+
                 gameWon();
             }
 
@@ -244,7 +282,7 @@ $(document).ready(function () {
 
                 lockBoard = false;
 
-            }, 900);
+            }, 1200);
         }
     }
 
@@ -253,7 +291,9 @@ $(document).ready(function () {
         clearInterval(timer);
 
         $('#finalTime')
-            .text(formatTime(seconds));
+            .text(
+                formatTime(seconds)
+            );
 
         $('#finalMoves')
             .text(moves);
@@ -264,21 +304,48 @@ $(document).ready(function () {
         const storageKey =
             `gamezone_memory_${difficulty}`;
 
-        const best =
-            localStorage.getItem(storageKey);
+        const currentRecord = {
+            moves: moves,
+            time: seconds
+        };
 
-        if (
-            !best ||
-            moves < parseInt(best)
+        const bestRecord =
+            JSON.parse(
+                localStorage.getItem(
+                    storageKey
+                )
+            );
+
+        let shouldSave = false;
+
+        if (!bestRecord) {
+
+            shouldSave = true;
+
+        } else if (
+            moves < bestRecord.moves
         ) {
+
+            shouldSave = true;
+
+        } else if (
+            moves === bestRecord.moves &&
+            seconds < bestRecord.time
+        ) {
+
+            shouldSave = true;
+        }
+
+        if (shouldSave) {
 
             localStorage.setItem(
                 storageKey,
-                moves
+                JSON.stringify(
+                    currentRecord
+                )
             );
 
-            $('#bestScore')
-                .text(moves);
+            loadBestScore();
         }
 
         setTimeout(() => {
