@@ -20,43 +20,14 @@ $(document).ready(function () {
 
     function loadBestScore() {
 
-        const difficulty =
-            $('#difficultySelect').val();
-
-        const data =
+        const best =
             localStorage.getItem(
-                `gamezone_memory_${difficulty}`
+                'gamezone_memory_high'
             );
 
-        if (!data) {
-
-            $('#bestScore').text('--');
-            return;
-        }
-
-        try {
-
-            const best = JSON.parse(data);
-
-            if (
-                best &&
-                best.moves !== undefined &&
-                best.time !== undefined
-            ) {
-
-                $('#bestScore').text(
-                    `${best.moves}M / ${best.time}s`
-                );
-
-            } else {
-
-                $('#bestScore').text(data);
-            }
-
-        } catch {
-
-            $('#bestScore').text(data);
-        }
+        $('#bestScore').text(
+            best ? `${best} moves` : '--'
+        );
     }
 
     function getGridSize() {
@@ -116,10 +87,9 @@ $(document).ready(function () {
 
             seconds++;
 
-            $('#timeDisplay')
-                .text(
-                    formatTime(seconds)
-                );
+            $('#timeDisplay').text(
+                formatTime(seconds)
+            );
 
         }, 1000);
     }
@@ -186,6 +156,7 @@ $(document).ready(function () {
         });
 
         $('.memory-card')
+            .off('click')
             .on('click', flipCard);
 
         loadBestScore();
@@ -195,18 +166,15 @@ $(document).ready(function () {
 
         if (lockBoard) return;
 
-        if (
-            $(this).hasClass('flipped')
-        ) return;
+        if ($(this).hasClass('flipped'))
+            return;
 
-        if (
-            flippedCards.length >= 2
-        ) return;
+        if (flippedCards.length >= 2)
+            return;
 
         if (!timerStarted) {
 
             timerStarted = true;
-
             startTimer();
         }
 
@@ -214,9 +182,7 @@ $(document).ready(function () {
 
         flippedCards.push($(this));
 
-        if (
-            flippedCards.length === 2
-        ) {
+        if (flippedCards.length === 2) {
 
             moves++;
 
@@ -260,7 +226,6 @@ $(document).ready(function () {
                 matchedPairs ===
                 config.pairs
             ) {
-
                 gameWon();
             }
 
@@ -290,62 +255,32 @@ $(document).ready(function () {
 
         clearInterval(timer);
 
-        $('#finalTime')
-            .text(
-                formatTime(seconds)
+        $('#finalTime').text(
+            formatTime(seconds)
+        );
+
+        $('#finalMoves').text(
+            moves
+        );
+
+        const bestScore =
+            localStorage.getItem(
+                'gamezone_memory_high'
             );
 
-        $('#finalMoves')
-            .text(moves);
-
-        const difficulty =
-            $('#difficultySelect').val();
-
-        const storageKey =
-            `gamezone_memory_${difficulty}`;
-
-        const currentRecord = {
-            moves: moves,
-            time: seconds
-        };
-
-        const bestRecord =
-            JSON.parse(
-                localStorage.getItem(
-                    storageKey
-                )
-            );
-
-        let shouldSave = false;
-
-        if (!bestRecord) {
-
-            shouldSave = true;
-
-        } else if (
-            moves < bestRecord.moves
+        if (
+            !bestScore ||
+            moves < parseInt(bestScore)
         ) {
-
-            shouldSave = true;
-
-        } else if (
-            moves === bestRecord.moves &&
-            seconds < bestRecord.time
-        ) {
-
-            shouldSave = true;
-        }
-
-        if (shouldSave) {
 
             localStorage.setItem(
-                storageKey,
-                JSON.stringify(
-                    currentRecord
-                )
+                'gamezone_memory_high',
+                moves
             );
 
-            loadBestScore();
+            $('#bestScore').text(
+                `${moves} moves`
+            );
         }
 
         setTimeout(() => {
