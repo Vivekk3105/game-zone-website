@@ -30,8 +30,8 @@
 
 /* Cell styles */
 .cell {
-    width: 30px;
-    height: 30px;
+    width: 1.7rem;
+    height: 1.7rem;
     background: #c0c0c0;
     border: 2px solid;
     border-color: #fff #808080 #808080 #fff;
